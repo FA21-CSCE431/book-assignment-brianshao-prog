@@ -13,8 +13,38 @@ RSpec.describe Book, type: :model do
     expect(subject).to be_valid
   end
 
-  it 'is not valid without a name' do
+  it 'is not valid without a title' do
     subject.title = nil
     expect(subject).not_to be_valid
+  end
+
+  it 'is not valid without a author' do
+    subject.author = nil
+    expect(subject).not_to be_valid
+  end
+
+  it 'is not valid without a price' do
+    subject.price = nil
+    expect(subject).not_to be_valid
+  end
+
+  it 'is not valid without a published date' do
+    subject.published_date = nil
+    expect(subject).not_to be_valid
+  end
+
+  it 'is not valid with a price being alphanumeric' do
+    subject.price = '123.abc'
+    expect(subject).not_to be_valid
+  end
+
+  it 'is not valid with a price consisting of only letters' do
+    subject.price = 'abc'
+    expect(subject).not_to be_valid
+  end
+
+  it 'is valid with a price being a string representing a number' do
+    subject.price = '123.123'
+    expect(subject).to be_valid
   end
 end
