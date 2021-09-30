@@ -7,12 +7,6 @@
     <tr>
       <th>Title</th>
       <th colspan="3"></th>
-      <th>Author</th>
-      <th colspan="3"></th>
-      <th>Price</th>
-      <th colspan="3"></th>
-      <th>Published</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -21,15 +15,10 @@
       <tr>
         <td><%= book.title %></td>
         <th colspan="3"></th>
-        <td><%= book.author %></td>
-        <th colspan="3"></th>
-        <td>$ <%= book.price %></td>
-        <th colspan="3"></th>
-        <td><%= book.published_date %></td>
-        <th colspan="3"></th>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', delete_book_path(book) %></td>
+        <!-- <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
